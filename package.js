@@ -1,7 +1,7 @@
 Package.describe({
 	name: 		'indesign:ratchet',
-	summary: 	' Ratchet UI Framework for Meteor without Push.js',
-	version: 	'0.0.1',
+	summary: 	'Ratchet UI Framework for Meteor without Push.js',
+	version: 	'0.0.2',
 	git: 		'https://github.com/wanchopeblanco/meteor-ratchet'
 });
 
@@ -9,7 +9,7 @@ Package.onUse(function (api) {
 	api.versionsFrom("0.9.3.1");
 
 	api.use('jquery');
-	api.use('ecmascript');
+	api.use('ecmascript@0.4.3');
 
 	var path = Npm.require('path');
 	var asset_path = path.join('ratchet-2.0.2');
