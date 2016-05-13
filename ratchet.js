@@ -31,7 +31,10 @@ Ratchet.navigation = function(target) {
 		}
 
 		// Set initial to false
-		isInitial = false;
+		if(isInitial){
+			$(element).addClass('moving');
+			isInitial = false;
+		}
 
 		// Get the distance swiped
 		const x = event.distance;
@@ -41,7 +44,7 @@ Ratchet.navigation = function(target) {
 
 		// If drag ended and x is over 50px go back
 		if(event.isFinal && x > 50){
-			$(element).removeClass('active');
+			$(element).removeClass('active').removeClass('moving');
 			setTimeout(function() {
 				$(element).css('left', 'auto');
 				window.history.back();

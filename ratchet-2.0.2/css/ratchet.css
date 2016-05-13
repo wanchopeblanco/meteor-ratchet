@@ -1140,6 +1140,9 @@ Component: Navigation Modal
 	-ms-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
+.navigation-modal.moving {
+	box-shadow: 0 0 10px 0;
+}
 
 
 
