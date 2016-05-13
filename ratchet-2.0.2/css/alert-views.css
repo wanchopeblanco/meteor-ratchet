@@ -1,0 +1,310 @@
+/* ========================================================================
+Component: Alert View
+========================================================================== */
+.alert-overlay{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+	background-color: rgba(0, 0, 0, 0.7);
+	opacity: 0;
+
+	-webkit-transition: opacity .4s;
+	-moz-transition:    opacity .4s;
+	transition:         opacity .4s;
+}
+
+.alert-overlay.active{
+	opacity: 1;
+}
+
+.alert-box{
+	width: 270px;
+	position: absolute;
+	z-index: 13500;
+	left: 50%;
+	margin-left: -135px;
+	margin-top: 0;
+	top: 35%;
+	text-align: center;
+	border-radius: 13px;
+	overflow: hidden;
+	opacity: 0;
+	-webkit-transform: translate3d(0, 0, 0) scale(1.185);
+	transform: translate3d(0, 0, 0) scale(1.185);
+	-webkit-transition-property: -webkit-transform, opacity;
+	-moz-transition-property: -moz-transform, opacity;
+	-ms-transition-property: -ms-transform, opacity;
+	-o-transition-property: -o-transform, opacity;
+	transition-property: transform, opacity;
+	color: #000;
+}
+
+.alert-box.alert-box-in {
+	opacity: 1;
+	-webkit-transition-duration: 400ms;
+	transition-duration: 400ms;
+	-webkit-transform: translate3d(0, 0, 0) scale(1);
+	transform: translate3d(0, 0, 0) scale(1);
+}
+.alert-box.alert-box-out {
+	opacity: 0;
+	z-index: 13499;
+	-webkit-transition-duration: 400ms;
+	transition-duration: 400ms;
+	-webkit-transform: translate3d(0, 0, 0) scale(1);
+	transform: translate3d(0, 0, 0) scale(1);
+}
+
+.label{
+	height: 50px;
+	line-height: 50px;
+	color: #404040;
+	font-size: 1.5em;
+	font-weight: 400;
+}
+
+
+.alert-box-content{
+	padding: 10px;
+	color: #656565;
+	padding-bottom: 60px;
+}
+
+.alert-box-buttons{
+	width: 100%;
+	display: inline-block;
+	padding: 10px;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+.alert-box-buttons > a{
+	margin: 0
+}
+
+.alert-box-buttons > .button-left{
+	width: 50%;
+	padding-right: 5px;
+	display: inline-block;
+}
+
+.alert-box-buttons > .button-right{
+	width: 50%;
+	padding-left: 5px;
+	display: inline-block;
+}
+
+.button-left > a,
+.button-right > a{
+	margin: 0;
+}
+
+
+
+/* ========================================================================
+Component: Alert loading animation
+========================================================================== */
+.loader{
+	width: 90px;
+	height: 90px;
+	background-color: #FFFFFF;
+	overflow: hidden;
+	display: block;
+	border: 3px solid #5dba9d;
+	border-radius: 100%;
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+	position: relative;
+	margin: 15px auto;
+	z-index: 1;
+}
+
+.element-animation{
+	animation:animationFrames linear 4s;
+	animation-iteration-count: infinite;
+	animation-fill-mode: forwards; /*when the spec is finished*/
+	-webkit-animation: animationFrames linear 4s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-fill-mode: forwards; /*Chrome 16+, Safari 4+*/
+}
+
+.element-animation > img{
+	max-width: none;
+}
+
+
+@keyframes animationFrames{
+	0% {
+		transform: translate(-1160px,15px);
+	}
+	100% {
+		transform: translate(0px,15px);
+	}
+}
+
+@-webkit-keyframes animationFrames{
+	0% {
+		-webkit-transform: translate(-1160px,15px);
+	}
+	100% {
+		-webkit-transform: translate(0px,15px);
+	}
+}
+
+
+
+
+
+
+
+
+
+/* ========================================================================
+Component: Alert loading animation
+========================================================================== */
+.action-sheet-wrapper {
+	-webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100%, 0);
+	-webkit-transition: all cubic-bezier(0.36, 0.66, 0.04, 1) 500ms;
+	transition: all cubic-bezier(0.36, 0.66, 0.04, 1) 500ms;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	max-width: 500px;
+	margin: auto;
+}
+
+.action-sheet-up {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.action-sheet {
+	margin-left: 8px;
+	margin-right: 8px;
+	width: auto;
+	z-index: 11;
+	overflow: hidden;
+}
+
+.action-sheet .button {
+	display: block;
+	padding: 12px;
+	width: 100%;
+	border-radius: 0;
+	border-color: #d1d3d6;
+	background-color: transparent;
+	color: #007aff;
+	font-size: 21px;
+}
+
+.action-sheet .button:hover {
+	color: #007aff;
+}
+
+.action-sheet .button.destructive {
+	color: #ff3b30;
+}
+
+.action-sheet .button.destructive:hover {
+	color: #ff3b30;
+}
+
+.action-sheet .button.active, .action-sheet .button.activated {
+	box-shadow: none;
+	border-color: #d1d3d6;
+	color: #007aff;
+	background: #e4e5e7;
+}
+
+.action-sheet-has-icons .icon {
+	position: absolute;
+	left: 16px;
+}
+
+.action-sheet-title {
+	padding: 16px;
+	color: #8f8f8f;
+	text-align: center;
+	font-size: 13px;
+}
+
+.action-sheet-group {
+	margin-bottom: 8px;
+	border-radius: 4px;
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.action-sheet-group .button {
+	border-width: 1px 0px 0px 0px;
+}
+
+.action-sheet-group .button:first-child:last-child {
+	border-width: 0;
+}
+
+.action-sheet-options {
+	background: #f1f2f3;
+}
+
+.action-sheet-cancel .button {
+	font-weight: 500;
+}
+
+.action-sheet-open {
+	pointer-events: none;
+}
+
+.action-sheet-open.modal-open .modal {
+	pointer-events: none;
+}
+
+.action-sheet-open .action-sheet-backdrop {
+	pointer-events: auto;
+}
+
+.platform-android .action-sheet-backdrop.active {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.platform-android .action-sheet {
+	margin: 0;
+}
+
+.platform-android .action-sheet .action-sheet-title,
+.platform-android .action-sheet .button {
+	text-align: left;
+	border-color: transparent;
+	font-size: 16px;
+	color: inherit;
+}
+
+.platform-android .action-sheet .action-sheet-title {
+	font-size: 14px;
+	padding: 16px;
+	color: #666;
+}
+
+.platform-android .action-sheet .button.active,
+.platform-android .action-sheet .button.activated {
+	background: #e8e8e8;
+}
+
+.platform-android .action-sheet-group {
+	margin: 0;
+	border-radius: 0;
+	background-color: #fafafa;
+}
+
+.platform-android .action-sheet-cancel {
+	display: none;
+}
+
+.platform-android .action-sheet-has-icons .button {
+	padding-left: 56px;
+}

@@ -1,7 +1,7 @@
 Package.describe({
 	name: 		'indesign:ratchet',
 	summary: 	'Ratchet UI Framework for Meteor without Push.js',
-	version: 	'0.0.3',
+	version: 	'0.0.4',
 	git: 		'https://github.com/wanchopeblanco/meteor-ratchet'
 });
 
@@ -16,6 +16,11 @@ Package.onUse(function (api) {
 	api.addFiles(path.join(asset_path, 'css', 'ratchet.css'), 'client');
 	api.addFiles(path.join(asset_path, 'css', 'ratchet-theme-ios.css'), 'client');
 	api.addFiles(path.join(asset_path, 'js', 'ratchet.js'), 'client');
+
+	// Aditionals
+	api.addFiles(path.join(asset_path, 'css', 'alert-views.css'), 'client');
+	api.addFiles(path.join(asset_path, 'css', 'loaders.css'), 'client');
+
 
 	// Themes
 	// api.addFiles(path.join(asset_path, 'css', 'ratchet-theme-android.scss'), 'client', {isImport: true});
