@@ -1,3 +1,8 @@
+.loader-container {
+	width: 150px; 
+	margin-top: 40%;
+}
+
 .diamond-loader {
 	display: inline-block;
 	max-height: 200px;

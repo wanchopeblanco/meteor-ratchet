@@ -256,7 +256,7 @@ Ratchet.alerts.hideActionSheet = function() {
 	}, 300);
 
 
-	Ratchet.alerts.callbacks = null;
+	Ratchet.alerts.callbacks = [];
 
 	setTimeout(function() {
 		$('.alert-overlay').remove();
@@ -274,13 +274,53 @@ jQuery.fn.extend({
 		const element = this[0];
 
 		const hammertime = new Hammer(element);
-		let isInitial = true;
+		let canPan = true;
+
+		hammertime.on('panstart', function(event) {
+			event.preventDefault();
+
+			// Dont continue with this event if panning is not near border
+			if(event.center.x > 30){
+				canPan = false;
+				return;
+			}
+
+			// Add moving class to modal
+			$(element).addClass('moving');
+		});
+
+		hammertime.on('panend', function(event) {
+			event.preventDefault();
+
+			if(!canPan){
+				canPan = true;
+				return;
+			}
+
+			canPan = true;
+
+			// Get the distance swiped
+			const x = event.distance;
+
+			// If drag ended and x is over 50px go back
+			if(event.target.tagName != 'IMG' && x > 100){
+				$(element).removeClass('active').removeClass('moving');
+				setTimeout(function() {
+					$(element).css('left', 'auto');
+
+					if(options.goBack == true){
+						window.history.back();
+					}
+				}, 200);
+			}else{// If drag end but x is less than 50 return to left auto
+				$(element).css('left', 'auto').removeClass('moving');
+			}
+		});
 
 		hammertime.on('pan', function(event) {
 			event.preventDefault();
 
-			// Dont continue with this event if panning is not near border
-			if(isInitial && event.center.x > 30){
+			if(!canPan){
 				return;
 			}
 
@@ -290,37 +330,10 @@ jQuery.fn.extend({
 				return;
 			}
 
-			// Set initial to false
-			if(isInitial){
-				$(element).addClass('moving');
-				isInitial = false;
-			}
-
 			// Get the distance swiped
 			const x = event.distance;
 
-			// Set the x value to the navigation modal
 			$(element).css('left', x+'px');
-
-			// If drag ended and x is over 50px go back
-			if(event.isFinal && x > 50){
-				$(element).removeClass('active').removeClass('moving');
-				setTimeout(function() {
-					$(element).css('left', 'auto');
-
-					if(options.goBack == true){
-						window.history.back();
-					}
-				}, 200);
-
-				// If is final set initial to true again
-				isInitial = true;
-			}else if(event.isFinal){// If drag end but x is less than 50 return to left auto
-				$(element).css('left', 'auto');
-
-				// If is final set initial to true again
-				isInitial = true;
-			}
 		});
 	},
 });
