@@ -158,6 +158,7 @@ Ratchet.alerts.hide = function() {
 	Ratchet.alerts.callbacks = [];
 
 	setTimeout(function() {
+		$('.alert-box').removeClass('alert-box-out');
 		$('.alert-overlay').remove();
 	}, 500);
 }
