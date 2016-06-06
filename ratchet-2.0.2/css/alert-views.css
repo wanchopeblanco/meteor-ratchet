@@ -27,7 +27,8 @@ Component: Alert View
 	margin-top: 0;
 	top: 35%;
 	text-align: center;
-	border-radius: 13px;
+	border-radius: 5px;
+	background-color: white;
 	overflow: hidden;
 	opacity: 0;
 	-webkit-transform: translate3d(0, 0, 0) scale(1.185);
@@ -66,15 +67,14 @@ Component: Alert View
 
 
 .alert-box-content{
-	padding: 10px;
+	padding: 10px 10px 80px 10px;
 	color: #656565;
-	padding-bottom: 60px;
 }
 
 .alert-box-buttons{
 	width: 100%;
 	display: inline-block;
-	padding: 10px;
+	padding: 10px 10px 10px 10px;
 	position: absolute;
 	bottom: 0px;
 	right: 0px;
