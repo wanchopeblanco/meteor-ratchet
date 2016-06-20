@@ -1,7 +1,7 @@
 Package.describe({
 	name: 		'indesign:ratchet',
 	summary: 	'Ratchet UI Framework for Meteor without Push.js',
-	version: 	'0.0.7',
+	version: 	'0.0.8',
 	git: 		'https://github.com/wanchopeblanco/meteor-ratchet',
 });
 
