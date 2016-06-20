@@ -6,12 +6,14 @@ Component: Alert View
 	height: 100%;
 	width: 100%;
 	z-index: 100;
+	border: 1px solid rgba(0, 0, 0, 0.7);
 	background-color: rgba(0, 0, 0, 0.7);
 	opacity: 0;
 
 	-webkit-transition: opacity .4s;
 	-moz-transition:    opacity .4s;
 	transition:         opacity .4s;
+	transform: translate3d(0);
 }
 
 .alert-overlay.active{
